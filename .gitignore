@@ -13,3 +13,7 @@ __pycache__/
 coverage/
 apps/web/.next/
 apps/api-hono/dist/
+
+
+.agents/
+.claude/
