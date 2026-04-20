@@ -1,0 +1,115 @@
+{
+  "uiLibrary": "shadcn/ui-compatible",
+  "framework": "React + Next.js App Router",
+  "style": "Tailwind CSS",
+  "aliases": {
+    "Button": "@/components/ui/button",
+    "Card": "@/components/ui/card",
+    "Badge": "@/components/ui/badge",
+    "Input": "@/components/ui/input",
+    "Select": "@/components/ui/select",
+    "Table": "@/components/ui/table",
+    "Sheet": "@/components/ui/sheet",
+    "Skeleton": "@/components/ui/skeleton",
+    "Alert": "@/components/ui/alert"
+  },
+  "components": {
+    "PageShell": {
+      "implementedBy": [
+        "div",
+        "Card"
+      ],
+      "responsibility": "页面容器、标题、说明和主内容间距"
+    },
+    "FilterPanel": {
+      "implementedBy": [
+        "Card",
+        "Input",
+        "Select",
+        "Button"
+      ],
+      "states": [
+        "idle",
+        "loading",
+        "error"
+      ],
+      "forbidden": [
+        "自定义 Select 组件"
+      ]
+    },
+    "MetricCardGroup": {
+      "implementedBy": [
+        "Card",
+        "Badge"
+      ],
+      "states": [
+        "loading",
+        "success"
+      ],
+      "forbidden": [
+        "硬编码卡片阴影"
+      ]
+    },
+    "RiskTable": {
+      "implementedBy": [
+        "Card",
+        "Table",
+        "Badge",
+        "Button"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "success"
+      ],
+      "forbidden": [
+        "未映射的数据表格库"
+      ]
+    },
+    "RiskDetailSheet": {
+      "implementedBy": [
+        "Sheet",
+        "Badge",
+        "Button"
+      ],
+      "states": [
+        "closed",
+        "open",
+        "no-permission"
+      ],
+      "forbidden": [
+        "Modal 替代 Sheet"
+      ]
+    },
+    "StateBlock": {
+      "implementedBy": [
+        "Alert",
+        "Skeleton",
+        "Button"
+      ],
+      "states": [
+        "loading",
+        "empty",
+        "error",
+        "no-permission"
+      ]
+    }
+  },
+  "rules": {
+    "tokenOnly": true,
+    "mustCoverStates": [
+      "loading",
+      "empty",
+      "error",
+      "no-permission"
+    ],
+    "forbidden": [
+      "硬编码 hex 色值",
+      "inline style 固定布局",
+      "未在 component-map 中声明的新 UI 库",
+      "跳过 API contract 自行发明字段",
+      "只实现静态视觉不实现交互状态"
+    ]
+  }
+}

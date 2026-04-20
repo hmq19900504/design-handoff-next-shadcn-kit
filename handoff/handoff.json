@@ -1,0 +1,33 @@
+{
+  "$schema": "./schemas/dhp.schema.json",
+  "dhpVersion": "0.2.0",
+  "module": "merchant-risk-console",
+  "language": "zh-CN",
+  "targetStack": {
+    "frontend": "TypeScript + React + Next.js App Router + Tailwind CSS + shadcn/ui",
+    "backend": [
+      "Hono + Node.js + TypeScript",
+      "FastAPI + Python optional"
+    ]
+  },
+  "entry": {
+    "page": "pages/merchant-risk-dashboard.md"
+  },
+  "tokens": "tokens/design-tokens.json",
+  "componentMap": "mapping/component-map.shadcn.json",
+  "apiContract": "api/api-contract.json",
+  "pages": [
+    "pages/merchant-risk-dashboard.md"
+  ],
+  "components": [
+    "components/filter-panel.md",
+    "components/metric-card.md",
+    "components/risk-table.md",
+    "components/detail-sheet.md",
+    "components/state-block.md"
+  ],
+  "flows": [
+    "flows/filter-and-dispose.md"
+  ],
+  "acceptance": "acceptance/checklist.md"
+}

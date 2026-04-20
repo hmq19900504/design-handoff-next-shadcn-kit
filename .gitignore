@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+dist/
+.turbo/
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+coverage/
+apps/web/.next/
+apps/api-hono/dist/

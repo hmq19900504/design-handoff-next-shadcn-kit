@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Design Handoff Protocol",
+  "type": "object",
+  "required": [
+    "dhpVersion",
+    "module",
+    "targetStack",
+    "tokens",
+    "componentMap",
+    "pages"
+  ],
+  "properties": {
+    "dhpVersion": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "language": {
+      "type": "string"
+    },
+    "targetStack": {
+      "type": "object"
+    },
+    "tokens": {
+      "type": "string"
+    },
+    "componentMap": {
+      "type": "string"
+    },
+    "apiContract": {
+      "type": "string"
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "components": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "flows": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

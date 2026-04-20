@@ -1,0 +1,145 @@
+{
+  "meta": {
+    "name": "DHP Merchant Risk Tokens",
+    "version": "0.2.0",
+    "format": "w3c-like"
+  },
+  "color": {
+    "background": {
+      "$type": "color",
+      "$value": "#F8FAFC"
+    },
+    "surface": {
+      "$type": "color",
+      "$value": "#FFFFFF"
+    },
+    "surfaceMuted": {
+      "$type": "color",
+      "$value": "#F1F5F9"
+    },
+    "textPrimary": {
+      "$type": "color",
+      "$value": "#0F172A"
+    },
+    "textSecondary": {
+      "$type": "color",
+      "$value": "#64748B"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "#E2E8F0"
+    },
+    "primary": {
+      "$type": "color",
+      "$value": "#2563EB"
+    },
+    "success": {
+      "$type": "color",
+      "$value": "#16A34A"
+    },
+    "warning": {
+      "$type": "color",
+      "$value": "#D97706"
+    },
+    "danger": {
+      "$type": "color",
+      "$value": "#DC2626"
+    },
+    "info": {
+      "$type": "color",
+      "$value": "#0891B2"
+    }
+  },
+  "spacing": {
+    "xs": {
+      "$type": "dimension",
+      "$value": "4px"
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "8px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "12px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "16px"
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": "24px"
+    },
+    "2xl": {
+      "$type": "dimension",
+      "$value": "32px"
+    }
+  },
+  "radius": {
+    "sm": {
+      "$type": "dimension",
+      "$value": "6px"
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "10px"
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "14px"
+    }
+  },
+  "font": {
+    "size": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "12px"
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "14px"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "16px"
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "20px"
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "28px"
+      }
+    },
+    "weight": {
+      "regular": {
+        "$type": "number",
+        "$value": 400
+      },
+      "medium": {
+        "$type": "number",
+        "$value": 500
+      },
+      "semibold": {
+        "$type": "number",
+        "$value": 600
+      },
+      "bold": {
+        "$type": "number",
+        "$value": 700
+      }
+    }
+  },
+  "shadow": {
+    "card": {
+      "$type": "shadow",
+      "$value": "0 1px 2px rgba(15, 23, 42, 0.06)"
+    },
+    "floating": {
+      "$type": "shadow",
+      "$value": "0 16px 40px rgba(15, 23, 42, 0.14)"
+    }
+  }
+}

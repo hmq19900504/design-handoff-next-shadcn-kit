@@ -1,0 +1,29 @@
+{
+  "name": "design-handoff-next-shadcn-kit",
+  "version": "0.2.0",
+  "private": true,
+  "description": "DHP: Design Handoff Protocol kit for Codex, Next.js, shadcn/ui, Hono and FastAPI.",
+  "license": "MIT",
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dhp:validate": "node scripts/dhp-validate.mjs ./handoff",
+    "dhp:build": "node scripts/dhp-build.mjs ./handoff",
+    "dhp:sync": "node scripts/sync-web.mjs ./handoff ./apps/web/src/generated",
+    "dhp:init": "node scripts/dhp-init.mjs",
+    "verify:offline": "node scripts/verify-offline.mjs",
+    "web:dev": "npm run dev -w apps/web",
+    "web:build": "npm run build -w apps/web",
+    "api:hono:dev": "npm run dev -w apps/api-hono",
+    "api:hono:build": "npm run build -w apps/api-hono",
+    "typecheck": "npm run typecheck -w apps/web && npm run typecheck -w apps/api-hono",
+    "build": "npm run dhp:validate && npm run dhp:build && npm run dhp:sync && npm run web:build",
+    "publish:github": "bash scripts/publish-github.sh"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

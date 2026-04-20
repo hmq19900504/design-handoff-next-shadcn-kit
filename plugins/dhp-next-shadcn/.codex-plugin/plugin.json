@@ -1,0 +1,39 @@
+{
+  "name": "dhp-next-shadcn",
+  "version": "0.2.0",
+  "description": "中文 Design Handoff Protocol skill for generating Next.js + Tailwind + shadcn/ui + Hono/FastAPI code from structured design handoff files.",
+  "author": {
+    "name": "DHP Kit",
+    "url": "https://github.com/your-org/design-handoff-next-shadcn-kit"
+  },
+  "homepage": "https://github.com/your-org/design-handoff-next-shadcn-kit",
+  "repository": "https://github.com/your-org/design-handoff-next-shadcn-kit",
+  "license": "MIT",
+  "keywords": [
+    "design-handoff",
+    "codex",
+    "nextjs",
+    "shadcn-ui",
+    "tailwind",
+    "hono",
+    "fastapi"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "DHP Next Shadcn",
+    "shortDescription": "把中文设计交接协议转成 Next.js/shadcn 生产代码。",
+    "longDescription": "DHP Next Shadcn 提供中文 Design Handoff Protocol 工作流，强制 Agent 先读取 handoff.json、tokens、component-map、API 契约和状态矩阵，再生成 TypeScript + React + Next.js + Tailwind + shadcn/ui 代码，并可对接 Hono/FastAPI。",
+    "developerName": "DHP Kit",
+    "category": "Productivity",
+    "capabilities": [
+      "Read",
+      "Write"
+    ],
+    "websiteURL": "https://github.com/your-org/design-handoff-next-shadcn-kit",
+    "defaultPrompt": [
+      "请使用 design-handoff-next-shadcn，读取 ./handoff/handoff.json，构建 bundle，并按协议生成 Next.js/shadcn 页面。",
+      "请使用 design-handoff-next-shadcn 检查当前页面是否违反 tokens、component-map 和状态矩阵。"
+    ],
+    "brandColor": "#111827"
+  }
+}

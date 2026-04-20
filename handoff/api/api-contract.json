@@ -1,0 +1,67 @@
+{
+  "name": "MerchantRiskConsoleAPI",
+  "version": "0.2.0",
+  "basePaths": {
+    "hono": "http://localhost:8787",
+    "fastapi": "http://localhost:8000"
+  },
+  "models": {
+    "RiskItem": {
+      "id": "string",
+      "merchantName": "string",
+      "riskLevel": "low | medium | high | critical",
+      "riskTags": "string[]",
+      "fulfillmentScore": "number",
+      "source": "manual | model | complaint | audit",
+      "owner": "string",
+      "updatedAt": "string",
+      "status": "pending | processing | resolved | rejected"
+    },
+    "Metric": {
+      "label": "string",
+      "value": "number | string",
+      "delta": "string",
+      "tone": "info | success | warning | danger"
+    },
+    "RiskQuery": {
+      "keyword": "string",
+      "riskLevel": "string",
+      "source": "string",
+      "dateRange": "string"
+    },
+    "DispositionRequest": {
+      "riskId": "string",
+      "action": "mark-safe | restrict | escalate",
+      "reason": "string"
+    }
+  },
+  "endpoints": [
+    {
+      "method": "GET",
+      "path": "/health",
+      "response": {
+        "ok": "boolean"
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/api/handoff",
+      "response": "DhpBundle"
+    },
+    {
+      "method": "GET",
+      "path": "/api/risk-items",
+      "query": "RiskQuery",
+      "response": "RiskItem[]"
+    },
+    {
+      "method": "POST",
+      "path": "/api/dispositions",
+      "body": "DispositionRequest",
+      "response": {
+        "ok": "boolean",
+        "message": "string"
+      }
+    }
+  ]
+}
