@@ -67,9 +67,10 @@ test("统一工具目标默认应该只覆盖 codex、claude skill", () => {
     homeDir: "/Users/tester"
   });
 
-  assert.equal(targets.skillLinks.length, 2);
+  assert.equal(targets.skillLinks.length, 3);
   assert.equal(targets.skillLinks[0].destination, "/Users/tester/.codex/skills/design-handoff-next-shadcn");
-  assert.equal(targets.skillLinks[1].destination, "/Users/tester/.agents/skills/design-handoff-next-shadcn");
+  assert.equal(targets.skillLinks[1].destination, "/Users/tester/.claude/skills/design-handoff-next-shadcn");
+  assert.equal(targets.skillLinks[2].destination, "/Users/tester/.agents/skills/design-handoff-next-shadcn");
   assert.equal(targets.marketplace, null);
 });
 
@@ -80,7 +81,7 @@ test("显式启用时才应该返回 codex marketplace 目标", () => {
     includeMarketplace: true
   });
 
-  assert.equal(targets.skillLinks.length, 2);
+  assert.equal(targets.skillLinks.length, 3);
   assert.equal(targets.marketplace.name, "dhp-local-marketplace");
   assert.equal(targets.marketplace.source, "/repo/design-handoff-kit");
 });

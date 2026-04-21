@@ -97,6 +97,7 @@ npm run tool:install
 - 打包独立 skill 到 `dist/skills/design-handoff-next-shadcn`
 - 把同一个 skill 安装到
   `~/.codex/skills/design-handoff-next-shadcn`
+  、`~/.claude/skills/design-handoff-next-shadcn`
   和 `~/.agents/skills/design-handoff-next-shadcn`
 
 这样 `Codex` 和 `Claude` 新会话都会读取同一份 installable skill。
@@ -145,7 +146,8 @@ npm run tool:install
 
 - 打包独立 skill 到 `dist/skills/design-handoff-next-shadcn`
 - 把 `Codex` skill 链接到 `~/.codex/skills/design-handoff-next-shadcn`
-- 把 `Claude` skill 链接到 `~/.agents/skills/design-handoff-next-shadcn`
+- 把 `Claude Code` skill 链接到 `~/.claude/skills/design-handoff-next-shadcn`
+- 把共享 `AGENTS` skill 镜像链接到 `~/.agents/skills/design-handoff-next-shadcn`
 
 这样后续你只要继续更新当前仓库，新的 `Codex` / `Claude` 会话就会直接读取仓库最新版，不需要重复拷贝。
 

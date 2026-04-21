@@ -19,6 +19,11 @@ export function getDefaultMappings({ repoRoot = getRepoRoot(import.meta.url), ho
     {
       name: "claude-skill",
       source: skillSource,
+      destination: path.join(homeDir, ".claude", "skills", "design-handoff-next-shadcn")
+    },
+    {
+      name: "agents-skill",
+      source: skillSource,
       destination: path.join(homeDir, ".agents", "skills", "design-handoff-next-shadcn")
     }
   ];
