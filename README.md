@@ -129,7 +129,10 @@ codex
 安装后可以在 Codex 里直接说：
 
 ```txt
-请使用 design-handoff-next-shadcn，读取 ./handoff/handoff.json，构建 bundle，并按协议生成或修改 Next.js/shadcn 页面。不要发明未映射组件。
+请使用 design-handoff-next-shadcn。
+先补齐产品边界、对象模型、页面职责和交互状态。
+默认输出 ASCII、Mermaid 和 DHP 协议块，再实现 Next.js/shadcn 前端与 Hono/FastAPI 后端。
+不要发明未映射组件，不要把失败态伪装成空态。
 ```
 
 ## 让仓库更新自动同步到 Codex / Claude
@@ -191,12 +194,12 @@ npm run tool:install:codex
 
 ## 推荐工作流
 
-1. 产品/设计把页面整理成 `handoff/pages/*.md`。
-2. 设计 token 放到 `handoff/tokens/design-tokens.json`。
-3. 组件映射放到 `handoff/mapping/component-map.shadcn.json`。
-4. 后端契约放到 `handoff/api/api-contract.json`。
+1. 先定义产品边界、对象模型、页面职责、交互状态和 V1 / V2。
+2. 用 Markdown 产出 ASCII 原型、Mermaid 图和 `dhp-*` 协议块。
+3. 设计 token 放到 `handoff/tokens/design-tokens.json`。
+4. 组件映射放到 `handoff/mapping/component-map.shadcn.json`，后端契约放到 `handoff/api/api-contract.json`。
 5. 执行 `npm run dhp:validate && npm run dhp:build && npm run dhp:sync`。
-6. 让 Codex 使用 `design-handoff-next-shadcn` skill 生成或修改代码。
+6. 使用 `design-handoff-next-shadcn` 统一实现前端和后端。
 7. 执行 `npm run typecheck && npm run build` 验证。
 
 ## 重要原则

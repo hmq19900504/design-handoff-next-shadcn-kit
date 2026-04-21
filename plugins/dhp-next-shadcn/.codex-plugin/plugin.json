@@ -1,7 +1,7 @@
 {
   "name": "dhp-next-shadcn",
   "version": "0.2.0",
-  "description": "中文 Design Handoff Protocol skill for generating Next.js + Tailwind + shadcn/ui + Hono/FastAPI code from structured design handoff files.",
+  "description": "中文产品设计交接与全栈研发 skill：先定义产品边界、对象模型、交互规格与 DHP 协议，再生成 Next.js + Tailwind + shadcn/ui + Hono/FastAPI 代码。",
   "author": {
     "name": "DHP Kit",
     "url": "https://github.com/your-org/design-handoff-next-shadcn-kit"
@@ -21,8 +21,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "DHP Next Shadcn",
-    "shortDescription": "把中文设计交接协议转成 Next.js/shadcn 生产代码。",
-    "longDescription": "DHP Next Shadcn 提供中文 Design Handoff Protocol 工作流，强制 Agent 先读取 handoff.json、tokens、component-map、API 契约和状态矩阵，再生成 TypeScript + React + Next.js + Tailwind + shadcn/ui 代码，并可对接 Hono/FastAPI。",
+    "shortDescription": "把产品边界、交互规格和 DHP 协议落成前后端代码。",
+    "longDescription": "DHP Next Shadcn 提供从产品边界、对象模型、页面职责、交互状态，到 ASCII/Mermaid/DHP 协议，再到 TypeScript + React + Next.js + Tailwind + shadcn/ui 前端与 Hono/FastAPI 后端的一体化研发工作流。",
     "developerName": "DHP Kit",
     "category": "Productivity",
     "capabilities": [
@@ -31,8 +31,8 @@
     ],
     "websiteURL": "https://github.com/your-org/design-handoff-next-shadcn-kit",
     "defaultPrompt": [
-      "请使用 design-handoff-next-shadcn，读取 ./handoff/handoff.json，构建 bundle，并按协议生成 Next.js/shadcn 页面。",
-      "请使用 design-handoff-next-shadcn 检查当前页面是否违反 tokens、component-map 和状态矩阵。"
+      "请使用 design-handoff-next-shadcn，先定义产品边界、对象模型、页面职责和交互状态，再产出 ASCII + Mermaid + DHP 协议块，并实现 Next.js/shadcn 前端与 Hono/FastAPI 后端。",
+      "请使用 design-handoff-next-shadcn 审查当前功能是否缺少产品边界、对象模型、状态矩阵、component-map 或 API 契约，并补齐到可研发状态。"
     ],
     "brandColor": "#111827"
   }

@@ -26,6 +26,7 @@
     "tool:install:codex": "node scripts/install-tooling.mjs --with-codex-marketplace",
     "tool:status": "node scripts/install-tooling.mjs --status",
     "tool:status:codex": "node scripts/install-tooling.mjs --status --with-codex-marketplace",
+    "test:design-handoff-skill": "node --test scripts/design-handoff-skill.test.mjs",
     "test:tooling": "node --test scripts/codex-marketplace-lib.test.mjs",
     "test:skill-package": "node --test scripts/skill-package-lib.test.mjs",
     "version:show": "node scripts/version-info.mjs",
