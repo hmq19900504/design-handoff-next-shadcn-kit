@@ -61,3 +61,14 @@ test("目标是普通目录时应该先备份再重新链接", (t) => {
   assert.equal(fs.lstatSync(destination).isSymbolicLink(), true);
   assert.equal(path.resolve(fs.readlinkSync(destination)), source);
 });
+
+test("dry-run 时源目录尚未生成也应该允许预览安装动作", (t) => {
+  const root = makeTempDir(t);
+  const source = path.join(root, "dist", "skills", "design-handoff-next-shadcn");
+  const destination = path.join(root, "skill");
+
+  const result = ensureLiveLink({ source, destination, dryRun: true });
+
+  assert.equal(result.status, "linked");
+  assert.equal(fs.existsSync(destination), false);
+});

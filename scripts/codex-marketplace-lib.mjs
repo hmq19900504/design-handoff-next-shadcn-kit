@@ -16,14 +16,16 @@ export function renderMarketplaceBlock({ marketplaceName, source }) {
   ].join("\n");
 }
 
-export function getDefaultToolingTargets({ repoRoot = getRepoRoot(import.meta.url), homeDir = os.homedir() } = {}) {
+export function getDefaultToolingTargets({ repoRoot = getRepoRoot(import.meta.url), homeDir = os.homedir(), includeMarketplace = false } = {}) {
   return {
     skillLinks: getDefaultMappings({ repoRoot, homeDir }),
-    marketplace: {
-      name: "dhp-local-marketplace",
-      source: repoRoot,
-      configPath: path.join(homeDir, ".codex", "config.toml")
-    }
+    marketplace: includeMarketplace
+      ? {
+          name: "dhp-local-marketplace",
+          source: repoRoot,
+          configPath: path.join(homeDir, ".codex", "config.toml")
+        }
+      : null
   };
 }
 

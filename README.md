@@ -9,7 +9,7 @@
 - Frontend：TypeScript + React + Next.js App Router + Tailwind CSS + shadcn/ui 风格组件
 - Backend A：Hono + Node.js + TypeScript
 - Backend B：FastAPI + Python，可选
-- Agent：Codex Skill + Codex Plugin 本地安装包
+- Agent：可安装通用 Skill，兼容 Codex / Claude；Codex Plugin 仅为可选增强
 - Protocol：Markdown + Mermaid + `dhp-*` JSON 协议块 + Design Tokens + Component Map + API Contract
 
 ## 这个项目解决什么问题
@@ -82,7 +82,28 @@ http://localhost:8000/docs
 http://localhost:8000/api/handoff
 ```
 
-## Codex Plugin 安装
+## 默认安装：通用 Skill（Codex / Claude 共用）
+
+如果你要的是两边都能用的统一入口，不要先走 plugin。先安装通用 skill：
+
+```bash
+npm run version:show
+npm run skill:pack
+npm run tool:install
+```
+
+这条主路径会做两件事：
+
+- 打包独立 skill 到 `dist/skills/design-handoff-next-shadcn`
+- 把同一个 skill 安装到
+  `~/.codex/skills/design-handoff-next-shadcn`
+  和 `~/.agents/skills/design-handoff-next-shadcn`
+
+这样 `Codex` 和 `Claude` 新会话都会读取同一份 installable skill。
+
+如果你只想处理 skill，不想碰任何 `Codex plugin/marketplace`，到这里就够了。
+
+## 可选增强：Codex Plugin 安装
 
 本仓库已经带了本地 marketplace：
 
@@ -102,6 +123,8 @@ codex
 
 在插件列表里选择 **DHP Next Shadcn** 安装。
 
+注意：这一节只对 `Codex` 生效，`Claude` 不支持 `.codex-plugin/plugin.json` 和 marketplace。
+
 安装后可以在 Codex 里直接说：
 
 ```txt
@@ -114,17 +137,23 @@ codex
 
 ```bash
 npm run version:show
-npm run test:tooling
+npm run skill:pack
 npm run tool:install
 ```
 
-这条命令会一次性完成三件事：
+这条命令默认只做通用 skill 安装：
 
+- 打包独立 skill 到 `dist/skills/design-handoff-next-shadcn`
 - 把 `Codex` skill 链接到 `~/.codex/skills/design-handoff-next-shadcn`
 - 把 `Claude` skill 链接到 `~/.agents/skills/design-handoff-next-shadcn`
-- 把本仓库注册为 `Codex marketplace`，让 `/plugins` 看到 **DHP 本地插件市场**
 
 这样后续你只要继续更新当前仓库，新的 `Codex` / `Claude` 会话就会直接读取仓库最新版，不需要重复拷贝。
+
+如果你还想给 `Codex` 额外挂上 plugin/marketplace，再单独运行：
+
+```bash
+npm run tool:install:codex
+```
 
 注意：
 
@@ -133,7 +162,7 @@ npm run tool:install
 - 如果要升级版本号，直接运行 `npm run version:sync -- 0.2.1`；它会同步 `package.json`、`plugin.json` 和 `SKILL.md` 的版本标识。
 - 当前统一接入状态可通过 `npm run tool:status` 查看。
 - 当前仓库内的 `AGENTS.md` 和 `CLAUDE.md` 本来就是直连仓库文件，因此在这个 repo 里 `Claude` 一直都是最新版本。
-- 如果你只想处理 skill 软链接、不想改 `Codex marketplace`，再使用 `npm run skill:link`。
+- 如果你只想显式安装 skill，也可以使用 `npm run skill:install`。
 
 ## 目录结构
 

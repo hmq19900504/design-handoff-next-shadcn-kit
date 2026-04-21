@@ -61,7 +61,7 @@ test("已存在同名 marketplace 但 source 不同时应该更新", () => {
   assert.match(result.content, /\[marketplaces\.openai-bundled\]/);
 });
 
-test("统一工具目标应该同时覆盖 codex、claude 和 marketplace", () => {
+test("统一工具目标默认应该只覆盖 codex、claude skill", () => {
   const targets = getDefaultToolingTargets({
     repoRoot: "/repo/design-handoff-kit",
     homeDir: "/Users/tester"
@@ -70,6 +70,17 @@ test("统一工具目标应该同时覆盖 codex、claude 和 marketplace", () =
   assert.equal(targets.skillLinks.length, 2);
   assert.equal(targets.skillLinks[0].destination, "/Users/tester/.codex/skills/design-handoff-next-shadcn");
   assert.equal(targets.skillLinks[1].destination, "/Users/tester/.agents/skills/design-handoff-next-shadcn");
+  assert.equal(targets.marketplace, null);
+});
+
+test("显式启用时才应该返回 codex marketplace 目标", () => {
+  const targets = getDefaultToolingTargets({
+    repoRoot: "/repo/design-handoff-kit",
+    homeDir: "/Users/tester",
+    includeMarketplace: true
+  });
+
+  assert.equal(targets.skillLinks.length, 2);
   assert.equal(targets.marketplace.name, "dhp-local-marketplace");
   assert.equal(targets.marketplace.source, "/repo/design-handoff-kit");
 });

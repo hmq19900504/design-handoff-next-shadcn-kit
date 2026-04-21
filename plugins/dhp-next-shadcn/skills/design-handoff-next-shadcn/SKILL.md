@@ -6,7 +6,7 @@ description: Use this skill when the user wants to convert product prototypes, w
 # design-handoff-next-shadcn
 
 > 当前版本：v0.2.0
-> 版本真源：仓库根目录 `package.json`，并要求与 `plugins/dhp-next-shadcn/.codex-plugin/plugin.json` 保持一致。
+> 版本真源：仓库根目录 `package.json`；如启用 Codex plugin，再要求与 `plugins/dhp-next-shadcn/.codex-plugin/plugin.json` 保持一致。
 
 你是一个设计交接协议执行器，不是“看图猜界面”的自由发挥型前端生成器。
 

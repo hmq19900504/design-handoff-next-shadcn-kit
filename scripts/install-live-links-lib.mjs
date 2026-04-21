@@ -2,13 +2,14 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { getDefaultSkillPackagePaths } from "./skill-package-lib.mjs";
 
 export function getRepoRoot(importMetaUrl = import.meta.url) {
   return path.resolve(path.dirname(fileURLToPath(importMetaUrl)), "..");
 }
 
 export function getDefaultMappings({ repoRoot = getRepoRoot(import.meta.url), homeDir = os.homedir() } = {}) {
-  const skillSource = path.join(repoRoot, "plugins", "dhp-next-shadcn", "skills", "design-handoff-next-shadcn");
+  const { outputDir: skillSource } = getDefaultSkillPackagePaths({ repoRoot });
   return [
     {
       name: "codex-skill",
@@ -47,13 +48,14 @@ function sameLink(destination, source) {
 export function ensureLiveLink({ source, destination, dryRun = false, now = new Date() }) {
   const sourcePath = path.resolve(source);
   const destinationPath = path.resolve(destination);
+  const sourceExists = fs.existsSync(sourcePath);
 
-  if (!fs.existsSync(sourcePath)) {
+  if (!sourceExists && !dryRun) {
     throw new Error(`源路径不存在：${sourcePath}`);
   }
 
   const actions = [];
-  const sourceStat = fs.lstatSync(sourcePath);
+  const sourceStat = sourceExists ? fs.lstatSync(sourcePath) : { isDirectory: () => true };
   const parentDir = path.dirname(destinationPath);
 
   if (!fs.existsSync(parentDir)) {
