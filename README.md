@@ -108,6 +108,33 @@ codex
 请使用 design-handoff-next-shadcn，读取 ./handoff/handoff.json，构建 bundle，并按协议生成或修改 Next.js/shadcn 页面。不要发明未映射组件。
 ```
 
+## 让仓库更新自动同步到 Codex / Claude
+
+如果你希望后续持续更新这个仓库时，`Codex` 和 `Claude` 都自动引用最新版本，推荐直接使用**统一安装入口**：
+
+```bash
+npm run version:show
+npm run test:tooling
+npm run tool:install
+```
+
+这条命令会一次性完成三件事：
+
+- 把 `Codex` skill 链接到 `~/.codex/skills/design-handoff-next-shadcn`
+- 把 `Claude` skill 链接到 `~/.agents/skills/design-handoff-next-shadcn`
+- 把本仓库注册为 `Codex marketplace`，让 `/plugins` 看到 **DHP 本地插件市场**
+
+这样后续你只要继续更新当前仓库，新的 `Codex` / `Claude` 会话就会直接读取仓库最新版，不需要重复拷贝。
+
+注意：
+
+- 已经打开的旧会话不保证热刷新；建议新开会话验证最新版本。
+- 当前版本标识可随时通过 `npm run version:show` 查看。
+- 如果要升级版本号，直接运行 `npm run version:sync -- 0.2.1`；它会同步 `package.json`、`plugin.json` 和 `SKILL.md` 的版本标识。
+- 当前统一接入状态可通过 `npm run tool:status` 查看。
+- 当前仓库内的 `AGENTS.md` 和 `CLAUDE.md` 本来就是直连仓库文件，因此在这个 repo 里 `Claude` 一直都是最新版本。
+- 如果你只想处理 skill 软链接、不想改 `Codex marketplace`，再使用 `npm run skill:link`。
+
 ## 目录结构
 
 ```txt
