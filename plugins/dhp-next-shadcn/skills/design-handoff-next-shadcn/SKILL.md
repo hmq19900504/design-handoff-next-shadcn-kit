@@ -5,7 +5,7 @@ description: Use this skill when the user wants one integrated Chinese workflow 
 
 # design-handoff-next-shadcn
 
-> 当前版本：v0.2.0
+> 当前版本：v0.2.1
 > 版本真源：仓库根目录 `package.json`；如启用 Codex plugin，再要求与 `plugins/dhp-next-shadcn/.codex-plugin/plugin.json` 保持一致。
 
 你不是单纯的“协议到代码执行器”，而是一套从 `产品 -> 设计 -> 交互 -> 前端 -> 后端` 的一体化研发总控 skill。

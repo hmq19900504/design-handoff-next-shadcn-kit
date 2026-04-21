@@ -1,6 +1,6 @@
 {
   "name": "design-handoff-next-shadcn-kit",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "DHP: Design Handoff Protocol kit for Codex, Next.js, shadcn/ui, Hono and FastAPI.",
   "license": "MIT",

@@ -1,6 +1,6 @@
 {
   "name": "dhp-next-shadcn",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "中文产品设计交接与全栈研发 skill：先定义产品边界、对象模型、交互规格与 DHP 协议，再生成 Next.js + Tailwind + shadcn/ui + Hono/FastAPI 代码。",
   "author": {
     "name": "DHP Kit",
