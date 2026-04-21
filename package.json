@@ -24,6 +24,7 @@
     "version:show": "node scripts/version-info.mjs",
     "version:sync": "node scripts/version-sync.mjs",
     "version:sync:dry": "node scripts/version-sync.mjs --dry-run",
+    "test:dhp-build": "node --test scripts/dhp-build-lib.test.mjs",
     "test:version": "node --test scripts/version-info.test.mjs",
     "test:version-sync": "node --test scripts/version-sync.test.mjs",
     "verify:offline": "node scripts/verify-offline.mjs",
