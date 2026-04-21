@@ -73,10 +73,12 @@ test("README 和安装说明的示例提示词应该使用单 skill 全链路口
   assert.match(readme, /产品边界/);
   assert.match(readme, /对象模型/);
   assert.match(readme, /后端/);
+  assert.match(readme, /skill:publish-local/);
   assert.doesNotMatch(readme, /读取 \.\/handoff\/handoff\.json，构建 bundle，并按协议生成或修改 Next\.js\/shadcn 页面/);
 
   assert.match(installDoc, /产品边界/);
   assert.match(installDoc, /对象模型/);
   assert.match(installDoc, /后端/);
+  assert.match(installDoc, /skill:publish-local/);
   assert.doesNotMatch(installDoc, /读取 \.\/handoff\/handoff\.json，按协议生成或修复 Next\.js\/shadcn 页面/);
 });

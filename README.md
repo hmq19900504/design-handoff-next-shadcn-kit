@@ -87,18 +87,14 @@ http://localhost:8000/api/handoff
 如果你要的是两边都能用的统一入口，不要先走 plugin。先安装通用 skill：
 
 ```bash
-npm run version:show
-npm run skill:pack
-npm run tool:install
+npm run skill:publish-local
 ```
 
-这条主路径会做两件事：
+这条主路径会一次性完成：
 
+- 运行关键契约测试
 - 打包独立 skill 到 `dist/skills/design-handoff-next-shadcn`
-- 把同一个 skill 安装到
-  `~/.codex/skills/design-handoff-next-shadcn`
-  、`~/.claude/skills/design-handoff-next-shadcn`
-  和 `~/.agents/skills/design-handoff-next-shadcn`
+- 把同一个 skill 安装到 `Codex / Claude Code / AGENTS` 的全局目录
 
 这样 `Codex` 和 `Claude` 新会话都会读取同一份 installable skill。
 
@@ -140,13 +136,12 @@ codex
 如果你希望后续持续更新这个仓库时，`Codex` 和 `Claude` 都自动引用最新版本，推荐直接使用**统一安装入口**：
 
 ```bash
-npm run version:show
-npm run skill:pack
-npm run tool:install
+npm run skill:publish-local
 ```
 
-这条命令默认只做通用 skill 安装：
+这条命令默认会：
 
+- 运行 `test:design-handoff-skill`、`test:skill-package`、`test:tooling`
 - 打包独立 skill 到 `dist/skills/design-handoff-next-shadcn`
 - 把 `Codex` skill 链接到 `~/.codex/skills/design-handoff-next-shadcn`
 - 把 `Claude Code` skill 链接到 `~/.claude/skills/design-handoff-next-shadcn`
@@ -157,7 +152,7 @@ npm run tool:install
 如果你还想给 `Codex` 额外挂上 plugin/marketplace，再单独运行：
 
 ```bash
-npm run tool:install:codex
+npm run skill:publish-local:codex
 ```
 
 注意：
@@ -167,7 +162,7 @@ npm run tool:install:codex
 - 如果要升级版本号，直接运行 `npm run version:sync -- 0.2.1`；它会同步 `package.json`、`plugin.json` 和 `SKILL.md` 的版本标识。
 - 当前统一接入状态可通过 `npm run tool:status` 查看。
 - 当前仓库内的 `AGENTS.md` 和 `CLAUDE.md` 本来就是直连仓库文件，因此在这个 repo 里 `Claude` 一直都是最新版本。
-- 如果你只想显式安装 skill，也可以使用 `npm run skill:install`。
+- 如果你只想拆开执行，也可以分别使用 `npm run skill:pack`、`npm run tool:install`、`npm run tool:install:codex`。
 
 ## 目录结构
 
